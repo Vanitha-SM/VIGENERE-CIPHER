@@ -37,6 +37,7 @@ STEP-8: Repeat the above steps to generate the entire cipher text.
 
 
 ## PROGRAM:
+```
 def vigenere_encrypt(plain_text, key):
     plain_text = plain_text.upper()
     key = key.upper()
@@ -60,8 +61,9 @@ def vigenere_decrypt(cipher_text, key):
         plain_text += decrypted_char
 
     return plain_text
-
+```
 # --- Menu Loop ---
+```
 while True:
     print("\n1. Encrypt Text\t2. Decrypt Text\t3. Exit")
     choice = input("Enter Your Choice: ")
@@ -80,7 +82,7 @@ while True:
         print("Decrypted Text:", result)
     else:
         print("Please Enter a Valid Option.")
-
+```
 
 ## OUTPUT:
 ![image](https://github.com/user-attachments/assets/a8aa443d-5422-4b10-bbc2-bbd946e05754)
