@@ -29,8 +29,55 @@ STEP-7: The junction character where these two meet forms the cipher character.
 STEP-8: Repeat the above steps to generate the entire cipher text.
 
 
-## PROGRAM
+## PROGRAM:
+def vigenere_encrypt(plain_text, key):
+    plain_text = plain_text.upper()
+    key = key.upper()
+    cipher_text = ""
 
-## OUTPUT
+    for i in range(len(plain_text)):
+        k = key[i % len(key)]
+        encrypted_char = chr((ord(plain_text[i]) - 65 + ord(k) - 65) % 26 + 65)
+        cipher_text += encrypted_char
 
-## RESULT
+    return cipher_text
+
+def vigenere_decrypt(cipher_text, key):
+    cipher_text = cipher_text.upper()
+    key = key.upper()
+    plain_text = ""
+
+    for i in range(len(cipher_text)):
+        k = key[i % len(key)]
+        decrypted_char = chr((ord(cipher_text[i]) - ord(k) + 26) % 26 + 65)
+        plain_text += decrypted_char
+
+    return plain_text
+
+# --- Menu Loop ---
+while True:
+    print("\n1. Encrypt Text\t2. Decrypt Text\t3. Exit")
+    choice = input("Enter Your Choice: ")
+
+    if choice == '3':
+        break
+    elif choice == '1':
+        plain = input("Enter Plain Text: ").replace(" ", "").upper()
+        key = input("Enter Key: ").replace(" ", "").upper()
+        result = vigenere_encrypt(plain, key)
+        print("Encrypted Text:", result)
+    elif choice == '2':
+        cipher = input("Enter Cipher Text: ").replace(" ", "").upper()
+        key = input("Enter Key: ").replace(" ", "").upper()
+        result = vigenere_decrypt(cipher, key)
+        print("Decrypted Text:", result)
+    else:
+        print("Please Enter a Valid Option.")
+
+
+## OUTPUT:
+![image](https://github.com/user-attachments/assets/a8aa443d-5422-4b10-bbc2-bbd946e05754)
+
+
+## RESULT:
+The program is executed successfully
